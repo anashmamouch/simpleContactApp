@@ -1,0 +1,58 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context="com.benzino.buzz.SelectContactActivity">
+
+    <TextView
+        android:id="@+id/activity_select_contact_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        android:padding="16dp"
+        android:background="#666"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#EEE"
+        android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/activity_select_contact_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:background="@drawable/button_bg"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"/>
+    
+    <Button
+        android:id="@+id/activity_select_contact_contact_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_1"
+        android:background="@drawable/button_bg"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/activity_select_contact_contact_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_2"
+        android:background="@drawable/button_bg"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/activity_select_contact_contact_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_3"
+        android:background="@drawable/button_bg"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

@@ -1,18 +1,28 @@
 package com.benzino.buzz;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 
 public abstract class BaseActivity  extends AppCompatActivity{
+    public static boolean isLoggedIn = false;
+
     private String tag = getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("ANAS | "+tag, "--onCreate");
+
+        if (!isLoggedIn && getClass() != LoginActivity.class){
+            startActivity(new Intent(this, LoginActivity.class));
+            Log.d("ANAS | " + tag, "--onCreate being replaced by Login activity ");
+            finish();
+            return;
+        }else{
+            Log.d("ANAS | " + tag, "--onCreate ");
+        }
     }
 
     @Override

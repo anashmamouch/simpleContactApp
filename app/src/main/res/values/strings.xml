@@ -6,6 +6,29 @@
 
     <!--activity_main.xml strings-->
     <string name="not_yet_set">Not yet set...</string>
+    <string name="logout">Logout</string>
     <string name="button">Click Me!</string>
+
+    <!--activity_select_contact.xml strings-->
+    <string name="title_activity_select_contact">Select Contact Activity</string>
+    <string name="contact_1">Contact 1</string>
+    <string name="contact_2">Contact 2</string>
+    <string name="contact_3">Contact 3</string>
+    <string name="search">Search for contact</string>
+    <string name="hello_world">Hello world</string>
+
+    <!--activity_search.xml strings-->
+    <string name="title_activity_search">Search Activity</string>
+    <string name="search_hint">Search for a contact...</string>
+    <string name="search_button">Search</string>
+    <string name="cancel_button">Cancel</string>
+
+
+    <!--activity_login.xml strings-->
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="email">Email...</string>
+    <string name="password">Password...</string>
+    <string name="login">Login</string>
+
 
 </resources>

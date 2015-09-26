@@ -1,41 +1,69 @@
 package com.benzino.buzz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends BaseActivity{
+import org.w3c.dom.Text;
 
-    private int counter;
-    private static final String BUNDLE_COUNTER = "BUNDLE_COUNTER";
+
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+    private static final int REQUEST_SELECT_CONTACT = 101;
+
+    private TextView textView;
+    private EditText editText;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(savedInstanceState != null)
-            counter = savedInstanceState.getInt(BUNDLE_COUNTER);
+        textView = (TextView) findViewById(R.id.activity_main_text);
+        editText = (EditText) findViewById(R.id.activity_main_editText);
+        button = (Button) findViewById(R.id.activity_main_button);
 
-        final TextView textView = (TextView) findViewById(R.id.activity_main_text);
-        final Button button = (Button) findViewById(R.id.activity_main_button);
+        button.setOnClickListener(this);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.activity_main_logout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                counter++;
-                textView.setText(Integer.toString(counter));
+                BaseActivity.isLoggedIn = false;
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }
         });
-
-        textView.setText(Integer.toString(counter));
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(BUNDLE_COUNTER, counter);
+    public void onClick(View view) {
+       if (view == button){
+           Intent intent = new Intent(this, SelectContactActivity.class);
+           intent.putExtra(SelectContactActivity.DATA, editText.getText().toString());
+           startActivityForResult(intent, REQUEST_SELECT_CONTACT);
+       }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_SELECT_CONTACT ){
+            if(resultCode == RESULT_OK){
+                String contactName = data.getStringExtra(SelectContactActivity.RESULT_CONTACT_NAME);
+                textView.setText("You selected " + contactName );
+            } else {
+                textView.setText("There was an error");
+            }
+        }else{
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+
+
+
     }
 }
 

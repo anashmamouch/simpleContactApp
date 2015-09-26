@@ -5,20 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="@drawable/weave_repeat"
     tools:context=".MainActivity">
-
 
     <TextView
         android:id="@+id/activity_main_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="16dp"
+        android:background="@drawable/weave_repeat"
         android:gravity="center"
-        android:textSize="42sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#999"
         android:text="@string/not_yet_set"/>
+
+    <EditText
+        android:id="@+id/activity_main_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_main_text"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"/>
+
 
     <Button
         android:id="@+id/activity_main_button"
@@ -26,11 +34,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:textSize="18sp"
-        style="?android:attr/buttonStyleSmall"
         android:textColor="#eee"
         android:background="@drawable/button_bg"
-        android:padding="16dp"
+        android:padding="8dp"
         android:text="@string/button"/>
+
+    <Button
+        android:id="@+id/activity_main_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#eee"
+        android:background="@drawable/button_bg"
+        android:padding="8dp"
+        android:text="@string/logout"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@id/activity_main_button"/>
 
 
 </RelativeLayout>
