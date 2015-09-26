@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Buzz</string>
+
+
+    <string name="action_settings">Settings</string>
+
+    <!--activity_main.xml strings-->
+    <string name="not_yet_set">Not yet set...</string>
+    <string name="button">Click Me!</string>
+
+</resources>
